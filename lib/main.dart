@@ -260,7 +260,7 @@ class _CalorieTrackerHomeState extends State<CalorieTrackerHome> {
                     Switch(
                       value: isManualMode,
                       activeThumbColor: Colors.green,
-                      activeTrackColor: Colors.green.withOpacity(0.5),
+                      activeTrackColor: Colors.green.withValues(alpha: 0.5),
                       onChanged: (val) {
                         setModalState(() {
                           isManualMode = val;
@@ -501,7 +501,7 @@ class _CalorieTrackerHomeState extends State<CalorieTrackerHome> {
       ])),
       Container(
         width: double.infinity,
-        decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(20), boxShadow: [BoxShadow(color: Colors.black.withOpacity(0.1), blurRadius: 10, offset: const Offset(0, 4))]),
+        decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(20), boxShadow: [BoxShadow(color: Colors.black.withValues(alpha: 0.1), blurRadius: 10, offset: const Offset(0, 4))]),
         child: items.isEmpty
             ? const Padding(padding: EdgeInsets.all(20), child: Text("Empty", style: TextStyle(color: Colors.grey, fontSize: 12)))
             : Column(children: items.asMap().entries.map((entry) {
@@ -509,7 +509,7 @@ class _CalorieTrackerHomeState extends State<CalorieTrackerHome> {
                 var food = entry.value;
                 return Column(children: [
                   Padding(padding: const EdgeInsets.all(12), child: Row(children: [
-                    Container(padding: const EdgeInsets.all(8), decoration: BoxDecoration(color: Colors.teal.withOpacity(0.1), borderRadius: BorderRadius.circular(10)), child: const Icon(Icons.restaurant, color: Colors.teal, size: 20)),
+                    Container(padding: const EdgeInsets.all(8), decoration: BoxDecoration(color: Colors.teal.withValues(alpha: 0.1), borderRadius: BorderRadius.circular(10)), child: const Icon(Icons.restaurant, color: Colors.teal, size: 20)),
                     const SizedBox(width: 12),
                     Expanded(child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
                       Text("${food['name'].toString().toUpperCase()} (${food['qty']})", style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 14)),
@@ -531,7 +531,7 @@ class _CalorieTrackerHomeState extends State<CalorieTrackerHome> {
     double progress = goal > 0 ? (current / goal).clamp(0.0, 1.0) : 0.0;
     return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
       Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [Text(label, style: const TextStyle(fontWeight: FontWeight.bold)), Text("${current.toInt()}g / ${goal}g")]),
-      LinearProgressIndicator(value: progress, color: color, backgroundColor: color.withOpacity(0.1),),
+      LinearProgressIndicator(value: progress, color: color, backgroundColor: color.withValues(alpha: 0.1),),
     ]);
   }
 }
