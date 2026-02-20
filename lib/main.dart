@@ -189,7 +189,7 @@ class _CalorieTrackerHomeState extends State<CalorieTrackerHome> {
           _showError("Food not found. Try Manual Mode!");
         }
       } catch (e) {
-        _showError("Connection Error");
+        print("DEBUG: Something went wrong: $e");
       }
     }
 
